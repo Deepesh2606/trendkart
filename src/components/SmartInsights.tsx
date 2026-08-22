@@ -143,8 +143,8 @@ export default function SmartInsights() {
             productName: topItem.name,
             description: "Ranked #1 in " + (topItem.category || "its category") + " locally. High demand expected this weekend.",
             badgeText: "Trending #1",
-            badgeColor: 'text-zinc-900 dark:text-teal-300 bg-zinc-200 dark:bg-zinc-700/40 ring-zinc-300/30',
-            icon: <TrendingUp size={20} className="text-zinc-900 dark:text-zinc-100" />,
+            badgeColor: 'text-stone-900 dark:text-teal-300 bg-stone-200 dark:bg-stone-700/40 ring-stone-300/30',
+            icon: <TrendingUp size={20} className="text-stone-900 dark:text-stone-100" />,
             product: topItem
           });
         }
@@ -171,10 +171,10 @@ export default function SmartInsights() {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-zinc-900 text-white text-xs p-3 rounded-lg shadow-xl border border-zinc-700">
+        <div className="bg-stone-900 text-white text-xs p-3 rounded-lg shadow-xl border border-stone-700">
           <p className="font-bold mb-1">{label}</p>
-          <p className="text-zinc-300">Market Trending: <span className="text-zinc-100 font-bold">{payload[0].value} items</span></p>
-          <p className="text-zinc-300">Your Shop Stock: <span className="text-emerald-400 font-bold">{payload[1].value} items</span></p>
+          <p className="text-stone-300">Market Trending: <span className="text-stone-100 font-bold">{payload[0].value} items</span></p>
+          <p className="text-stone-300">Your Shop Stock: <span className="text-emerald-400 font-bold">{payload[1].value} items</span></p>
         </div>
       );
     }
@@ -185,10 +185,10 @@ export default function SmartInsights() {
     <div className="flex flex-col h-full space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="p-2 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg shadow-sm">
+          <div className="p-2 bg-stone-100 dark:bg-stone-800 text-orange-700 dark:text-orange-400 rounded-lg shadow-sm">
             <Lightbulb size={20} />
           </div>
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">Market Intelligence</h2>
+          <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 tracking-tight">Market Intelligence</h2>
         </div>
       </div>
 
@@ -197,30 +197,30 @@ export default function SmartInsights() {
         <div className="w-full xl:w-1/3 flex flex-col gap-4 overflow-y-auto custom-scrollbar pr-1">
           {loading ? (
             [...Array(3)].map((_, i) => (
-              <div key={i} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 shadow-sm animate-pulse h-[160px]"></div>
+              <div key={i} className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-4 shadow-sm animate-pulse h-[160px]"></div>
             ))
           ) : (
             cards.map(card => (
-              <div key={card.id} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group shrink-0">
+              <div key={card.id} className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group shrink-0">
                 <div>
                   <div className="flex items-start justify-between mb-2">
-                    <div className="p-1.5 bg-zinc-50 dark:bg-zinc-800 rounded-lg border border-zinc-100 dark:border-zinc-700 group-hover:scale-110 transition-transform duration-300">
+                    <div className="p-1.5 bg-stone-50 dark:bg-stone-800 rounded-lg border border-stone-100 dark:border-stone-700 group-hover:scale-110 transition-transform duration-300">
                       {card.icon}
                     </div>
                     <span className={"text-[10px] font-bold px-2 py-0.5 rounded-full ring-1 " + card.badgeColor}>
                       {card.badgeText}
                     </span>
                   </div>
-                  <h3 className="text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-0.5">{card.title}</h3>
-                  <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 leading-tight mb-1 truncate">{card.productName}</h4>
-                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-snug line-clamp-2">
+                  <h3 className="text-[11px] font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-0.5">{card.title}</h3>
+                  <h4 className="text-sm font-bold text-stone-900 dark:text-stone-100 leading-tight mb-1 truncate">{card.productName}</h4>
+                  <p className="text-xs text-stone-600 dark:text-stone-400 leading-snug line-clamp-2">
                     {card.description}
                   </p>
                 </div>
                 
                 <button 
                   onClick={() => handleAction(card.product, card.type)}
-                  className="mt-3 w-full flex items-center justify-center space-x-1.5 bg-zinc-100 hover:bg-zinc-900 dark:bg-zinc-800 dark:hover:bg-zinc-900 text-zinc-700 hover:text-white dark:text-zinc-300 py-1.5 rounded-lg font-medium text-xs transition-colors active:scale-[0.97] custom-focus-ring"
+                  className="mt-3 w-full flex items-center justify-center space-x-1.5 bg-stone-100 hover:bg-stone-900 dark:bg-stone-800 dark:hover:bg-stone-900 text-stone-700 hover:text-white dark:text-stone-300 py-1.5 rounded-lg font-medium text-xs transition-colors active:scale-[0.97] custom-focus-ring"
                 >
                   <Plus size={14} />
                   <span>{card.type === 'revenue' ? 'Restock' : 'Track'}</span>
@@ -231,15 +231,15 @@ export default function SmartInsights() {
         </div>
 
         {/* Right Side: Graph */}
-        <div className="w-full xl:w-2/3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 shadow-sm flex flex-col">
+        <div className="w-full xl:w-2/3 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-5 shadow-sm flex flex-col">
           <div className="mb-4">
-            <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-200">Inventory Deficit vs Market Demand</h3>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400">Tracking how many trending items you currently carry per category.</p>
+            <h3 className="text-sm font-bold text-stone-800 dark:text-stone-200">Inventory Deficit vs Market Demand</h3>
+            <p className="text-xs text-stone-500 dark:text-stone-400">Tracking how many trending items you currently carry per category.</p>
           </div>
           
           <div className="flex-1 w-full min-h-[250px]">
             {loading ? (
-              <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800/50 rounded-xl animate-pulse"></div>
+              <div className="w-full h-full bg-stone-100 dark:bg-stone-800/50 rounded-xl animate-pulse"></div>
             ) : (
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>

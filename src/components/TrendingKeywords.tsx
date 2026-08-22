@@ -43,31 +43,31 @@ export default function TrendingKeywords() {
   };
 
   return (
-    <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
+    <div className="bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
       <div className="flex items-center space-x-2 mb-6">
-        <div className="p-2 bg-zinc-200 dark:bg-zinc-700/30 text-zinc-900 dark:text-zinc-100 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
+        <div className="p-2 bg-stone-200 dark:bg-stone-700/30 text-stone-900 dark:text-stone-100 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
           <TrendingUp size={20} />
         </div>
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Trending in Punjab</h2>
+        <h2 className="text-lg font-semibold text-stone-900 dark:text-stone-100">Trending in Punjab</h2>
       </div>
 
       <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
         {loading ? (
           <div className="space-y-4">
             {[...Array(5)].map((_, i) => (
-              <div key={i} className="animate-pulse flex items-center justify-between p-3 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-100 dark:border-zinc-700">
-                <div className="h-4 bg-zinc-200 dark:bg-zinc-700 rounded w-2/3"></div>
-                <div className="h-4 bg-zinc-200 dark:bg-zinc-700 rounded w-8"></div>
+              <div key={i} className="animate-pulse flex items-center justify-between p-3 bg-white dark:bg-stone-800 rounded-lg border border-stone-100 dark:border-stone-700">
+                <div className="h-4 bg-stone-200 dark:bg-stone-700 rounded w-2/3"></div>
+                <div className="h-4 bg-stone-200 dark:bg-stone-700 rounded w-8"></div>
               </div>
             ))}
           </div>
         ) : (
           <div className="space-y-3">
             {trends.map((trend, i) => (
-              <div key={i} className="group flex items-center justify-between p-3 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-100 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-700/50 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
+              <div key={i} className="group flex items-center justify-between p-3 bg-white dark:bg-stone-800 rounded-lg border border-stone-100 dark:border-stone-700 hover:border-stone-300 dark:hover:border-stone-700/50 hover:bg-stone-100/50 dark:hover:bg-stone-800/80 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
                 <div className="flex flex-col flex-1">
-                  <span className="font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">{trend.keyword}</span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">Vol: {trend.volume}</span>
+                  <span className="font-medium text-sm text-stone-900 dark:text-stone-100 group-hover:text-orange-600 dark:group-hover:text-stone-100 transition-colors">{trend.keyword}</span>
+                  <span className="text-xs text-stone-500 dark:text-stone-400">Vol: {trend.volume}</span>
                 </div>
                 
                 <div className="flex items-center space-x-3">
@@ -80,7 +80,7 @@ export default function TrendingKeywords() {
                     onClick={() => addToInventory(trend)}
                     aria-label="Track in Shop Inventory"
                     title="Track in Shop Inventory"
-                    className="w-7 h-7 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-700 text-zinc-500 hover:bg-zinc-900 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
+                    className="w-7 h-7 flex items-center justify-center rounded-full bg-stone-100 dark:bg-stone-700 text-stone-500 hover:bg-orange-600 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
                   >
                     <Plus size={14} />
                   </button>
@@ -93,12 +93,12 @@ export default function TrendingKeywords() {
 
       {/* Explore More Button */}
       {!loading && (
-        <div className="pt-4 mt-2 border-t border-zinc-100 dark:border-zinc-800 shrink-0">
+        <div className="pt-4 mt-2 border-t border-stone-100 dark:border-stone-800 shrink-0">
           <a 
             href={`https://trends.google.com/trends/explore?geo=IN-PB&q=mobile+accessories`}
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center space-x-2 bg-white hover:bg-zinc-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group border border-zinc-200 dark:border-zinc-700"
+            className="w-full flex items-center justify-center space-x-2 bg-white hover:bg-stone-100 dark:bg-stone-800/50 dark:hover:bg-stone-800 text-orange-700 dark:text-orange-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group border border-stone-200 dark:border-stone-700"
           >
             <span>Explore Punjab Trends</span>
             <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />

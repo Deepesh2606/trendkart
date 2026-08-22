@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fafaf9;
   --foreground: #171717;
-  --chart-market: #18181b; /* zinc-900 */
-  --chart-stock: #a1a1aa; /* zinc-400 */
+  --chart-market: #ea580c; /* stone-900 */
+  --chart-stock: #a1a1aa; /* stone-400 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1c1917;
     --foreground: #ededed;
-    --chart-market: #f4f4f5; /* zinc-100 */
-    --chart-stock: #52525b; /* zinc-500 */
+    --chart-market: #f97316; /* stone-100 */
+    --chart-stock: #52525b; /* stone-500 */
   }
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #1c1917;
   --foreground: #ededed;
-  --chart-market: #f4f4f5; /* zinc-100 */
-  --chart-stock: #52525b; /* zinc-500 */
+  --chart-market: #f97316; /* stone-100 */
+  --chart-stock: #52525b; /* stone-500 */
 }
 
 @theme inline {
@@ -49,22 +49,22 @@ body {
 }
 
 ::selection {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
+  background-color: rgba(234, 88, 12, 0.2);
+  color: inherit;
 }
 
 .dark ::selection {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
+  background-color: rgba(249, 115, 22, 0.3);
+  color: inherit;
 }
 
 .custom-focus-ring:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #18181b; /* zinc-900 */
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #ea580c; /* stone-900 */
 }
 
 .dark .custom-focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #e4e4e7; /* zinc-200 */
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #f97316; /* stone-200 */
 }
 
 /* Enforce Bolder Typography */

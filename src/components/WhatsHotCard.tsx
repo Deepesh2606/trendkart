@@ -13,15 +13,15 @@ export default function WhatsHotCard() {
         <div className="p-2 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-lg">
           <Flame size={20} />
         </div>
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">What's Hot</h2>
+        <h2 className="text-lg font-semibold text-stone-900 dark:text-stone-100">What's Hot</h2>
       </div>
 
       <div className="space-y-4">
         {hotProducts.map((product, idx) => (
-          <div key={idx} className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sm p-4 rounded-xl border border-white/40 dark:border-zinc-800 flex justify-between items-center hover:shadow-md transition-shadow cursor-default">
+          <div key={idx} className="bg-white/60 dark:bg-stone-900/60 backdrop-blur-sm p-4 rounded-xl border border-white/40 dark:border-stone-800 flex justify-between items-center hover:shadow-md transition-shadow cursor-default">
             <div>
-              <h3 className="font-medium text-sm text-zinc-900 dark:text-zinc-100 mb-1">{product.name}</h3>
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-md">{product.category}</span>
+              <h3 className="font-medium text-sm text-stone-900 dark:text-stone-100 mb-1">{product.name}</h3>
+              <span className="text-xs text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-stone-800 px-2 py-0.5 rounded-md">{product.category}</span>
             </div>
             <div className="flex items-center text-red-600 dark:text-red-400 font-bold text-sm bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-lg">
               <ArrowUp size={14} className="mr-1" />
@@ -32,7 +32,7 @@ export default function WhatsHotCard() {
       </div>
       
       <div className="mt-6 pt-5 border-t border-orange-200/50 dark:border-orange-900/30 space-y-4">
-        <div className="text-xs text-zinc-500 dark:text-zinc-400 flex justify-between items-center">
+        <div className="text-xs text-stone-500 dark:text-stone-400 flex justify-between items-center">
           <span>Based on WoW search volume</span>
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
         </div>
