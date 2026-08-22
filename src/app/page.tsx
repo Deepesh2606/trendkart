@@ -6,7 +6,6 @@ import WhatsHotCard from '@/components/WhatsHotCard';
 import ShopInventory from '@/components/ShopInventory';
 import SmartInsights from '@/components/SmartInsights';
 import HeroSection from '@/components/HeroSection';
-import AiAssistant from '@/components/AiAssistant';
 import { RefreshCcw, Activity, Store, Heart } from 'lucide-react';
 
 export default function Home() {
@@ -101,9 +100,6 @@ export default function Home() {
         onClose={() => setIsInventoryOpen(false)} 
         onCountChange={setInventoryCount}
       />
-
-      {/* Floating AI Assistant */}
-      <AiAssistant />
     </div>
   );
 }
