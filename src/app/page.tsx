@@ -1,6 +1,7 @@
 import TrendingKeywords from '@/components/TrendingKeywords';
 import BestsellersList from '@/components/BestsellersList';
 import WhatsHotCard from '@/components/WhatsHotCard';
+import ShopInventory from '@/components/ShopInventory';
 import { RefreshCcw, Activity } from 'lucide-react';
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 p-4 sm:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className="max-w-[1400px] mx-auto space-y-6">
         
         {/* Header */}
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
@@ -19,7 +20,7 @@ export default function Home() {
               </div>
               <h1 className="text-2xl font-bold tracking-tight">TrendKart</h1>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Mobile Accessories Market Intelligence</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Jalandhar Local Market Intelligence</p>
           </div>
           
           <div className="flex items-center space-x-2 text-xs font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
@@ -29,32 +30,26 @@ export default function Home() {
         </header>
 
         {/* Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[calc(100vh-140px)] min-h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[calc(100vh-140px)] min-h-[700px]">
           
-          {/* Column 1: Trending Keywords (Left) */}
-          <div className="lg:col-span-3 h-full">
-            <TrendingKeywords />
-          </div>
-
-          {/* Column 2: Bestseller Rankings (Middle) */}
-          <div className="lg:col-span-6 h-full">
-            <BestsellersList />
-          </div>
-
-          {/* Column 3: What's Hot Highlights (Right) */}
+          {/* Column 1: Market Trends (Left) */}
           <div className="lg:col-span-3 h-full flex flex-col space-y-6">
+            <div className="flex-1">
+              <TrendingKeywords />
+            </div>
             <div className="flex-1">
               <WhatsHotCard />
             </div>
-            
-            {/* Small Quick Stat Card */}
-            <div className="bg-blue-600 dark:bg-blue-700 text-white rounded-xl p-5 shadow-sm border border-blue-500 dark:border-blue-600">
-              <h3 className="text-sm font-medium text-blue-100 mb-1">Market Insight</h3>
-              <p className="text-lg font-bold">Type-C Cables demand up 24% this week.</p>
-              <button className="mt-4 text-xs bg-white text-blue-700 font-semibold px-3 py-1.5 rounded-lg w-full hover:bg-blue-50 transition-colors">
-                View Stock Recommendations
-              </button>
-            </div>
+          </div>
+
+          {/* Column 2: Bestseller Rankings (Middle) */}
+          <div className="lg:col-span-5 h-full">
+            <BestsellersList />
+          </div>
+
+          {/* Column 3: My Shop Inventory (Right) */}
+          <div className="lg:col-span-4 h-full">
+            <ShopInventory />
           </div>
 
         </div>

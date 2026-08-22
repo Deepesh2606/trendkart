@@ -4,9 +4,9 @@ import googleTrends from 'google-trends-api';
 
 export async function GET() {
   try {
-    // Try to fetch real-time trends for India
+    // Try to fetch real-time trends for Punjab, India
     const results = await googleTrends.dailyTrends({
-      geo: 'IN',
+      geo: 'IN-PB',
     });
     
     const parsedData = JSON.parse(results);
