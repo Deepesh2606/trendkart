@@ -97,10 +97,14 @@ export default function ShopInventory({ isOpen, onClose, onCountChange }: ShopIn
             <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">My Jalandhar Shop</h2>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200 text-xs font-bold px-2 py-1 rounded-full">
+            <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200 text-xs font-bold px-2 py-1 rounded-full select-none">
               {inventory.length} Items
             </span>
-            <button onClick={onClose} className="p-1.5 text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+            <button 
+              onClick={onClose} 
+              aria-label="Close Inventory Drawer"
+              className="p-1.5 text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors active:scale-[0.97] custom-focus-ring"
+            >
               <X size={20} />
             </button>
           </div>
@@ -121,27 +125,31 @@ export default function ShopInventory({ isOpen, onClose, onCountChange }: ShopIn
                     <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-tight">{item.name}</h3>
                     <p className="text-xs text-gray-500 mt-1">{item.category}</p>
                   </div>
-                  <button onClick={() => removeItem(item.id)} className="text-gray-400 hover:text-red-500 transition-colors p-1 hover:bg-red-50 dark:hover:bg-red-900/20 rounded">
+                  <button 
+                    onClick={() => removeItem(item.id)} 
+                    aria-label="Remove item"
+                    className="text-gray-400 hover:text-red-500 transition-colors p-1 hover:bg-red-50 dark:hover:bg-red-900/20 rounded active:scale-[0.97] custom-focus-ring"
+                  >
                     <Trash2 size={16} />
                   </button>
                 </div>
                 
-                <div className="flex space-x-2 mt-4 pt-3 border-t border-gray-100 dark:border-gray-700/50">
+                <div className="flex space-x-2 mt-4 pt-3 border-t border-gray-100 dark:border-gray-700/50 select-none">
                   <button 
                     onClick={() => updateStatus(item.id, 'Stocked')}
-                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors ${item.status === 'Stocked' ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 ring-1 ring-green-500/30' : 'bg-gray-50 dark:bg-gray-700/50 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors active:scale-[0.97] custom-focus-ring ${item.status === 'Stocked' ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 ring-1 ring-green-500/30' : 'bg-gray-50 dark:bg-gray-700/50 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                   >
                     <CheckCircle2 size={14} className="mr-1.5" /> In Store
                   </button>
                   <button 
                     onClick={() => updateStatus(item.id, 'Ordered')}
-                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors ${item.status === 'Ordered' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400 ring-1 ring-blue-500/30' : 'bg-gray-50 dark:bg-gray-700/50 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors active:scale-[0.97] custom-focus-ring ${item.status === 'Ordered' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400 ring-1 ring-blue-500/30' : 'bg-gray-50 dark:bg-gray-700/50 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                   >
                     <Clock size={14} className="mr-1.5" /> Ordered
                   </button>
                   <button 
                     onClick={() => updateStatus(item.id, 'Out of Stock')}
-                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors ${item.status === 'Out of Stock' ? 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400 ring-1 ring-red-500/30' : 'bg-gray-50 dark:bg-gray-700/50 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors active:scale-[0.97] custom-focus-ring ${item.status === 'Out of Stock' ? 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400 ring-1 ring-red-500/30' : 'bg-gray-50 dark:bg-gray-700/50 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                   >
                     <PackageX size={14} className="mr-1.5" /> Out
                   </button>

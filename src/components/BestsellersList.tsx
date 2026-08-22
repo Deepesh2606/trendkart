@@ -64,12 +64,12 @@ export default function BestsellersList() {
           <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Flipkart Bestsellers</h2>
         </div>
         
-        <div className="flex flex-wrap gap-1 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg self-start">
+        <div className="flex flex-wrap gap-1 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg self-start select-none">
           {CATEGORIES.map(cat => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-300 ${activeCategory === cat ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm scale-105' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'}`}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-300 custom-focus-ring ${activeCategory === cat ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm scale-[1.03]' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'}`}
             >
               {cat}
             </button>
@@ -127,8 +127,9 @@ export default function BestsellersList() {
 
                 <button 
                   onClick={() => addToInventory(product)}
+                  aria-label="Add to Shop Inventory"
                   title="Add to Shop Inventory"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
                 >
                   <Plus size={16} />
                 </button>

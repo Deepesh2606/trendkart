@@ -77,8 +77,9 @@ export default function TrendingKeywords() {
                 
                 <button 
                   onClick={() => addToInventory(trend)}
+                  aria-label="Track in Shop Inventory"
                   title="Track in Shop Inventory"
-                  className="w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95"
+                  className="w-7 h-7 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
                 >
                   <Plus size={14} />
                 </button>
