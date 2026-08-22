@@ -31,7 +31,7 @@ Format your responses using clean markdown (bolding, lists) to make it easy to s
 
     const completion = await openai.chat.completions.create({
       messages: [systemPrompt, ...messages],
-      model: "grok-beta", // Using Grok
+      model: "grok-2-latest", // Updated to grok-2-latest
       temperature: 0.7,
       max_tokens: 1024,
     });
