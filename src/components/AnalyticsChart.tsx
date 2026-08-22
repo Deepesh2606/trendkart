@@ -44,7 +44,7 @@ export default function AnalyticsChart() {
               fontSize={12} 
               tickLine={false} 
               axisLine={false} 
-              tickFormatter={(value) => \`${value / 1000}k\`}
+              tickFormatter={(value) => (value / 1000) + 'k'}
             />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1e293b', border: 'none', borderRadius: '8px', color: '#f8fafc' }}
