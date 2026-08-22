@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Star, ShoppingBag, ExternalLink, Cable, Smartphone, Headphones, BatteryCharging, Plus } from 'lucide-react';
+import { Star, ShoppingBag, ExternalLink, Cable, Smartphone, Headphones, BatteryCharging, Plus, Speaker, MonitorSpeaker, SdCard } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -14,7 +14,7 @@ interface Product {
   imageUrl?: string;
 }
 
-const CATEGORIES = ['Cables', 'Covers', 'Headsets', 'Chargers'];
+const CATEGORIES = ['Cables', 'Covers', 'Headsets', 'Chargers', 'Speakers', 'Soundbars', 'SD Cards'];
 
 const CategoryIcon = ({ category, className }: { category: string, className?: string }) => {
   switch (category) {
@@ -22,6 +22,9 @@ const CategoryIcon = ({ category, className }: { category: string, className?: s
     case 'Covers': return <Smartphone className={className} />;
     case 'Headsets': return <Headphones className={className} />;
     case 'Chargers': return <BatteryCharging className={className} />;
+    case 'Speakers': return <Speaker className={className} />;
+    case 'Soundbars': return <MonitorSpeaker className={className} />;
+    case 'SD Cards': return <SdCard className={className} />;
     default: return <ShoppingBag className={className} />;
   }
 };
@@ -61,7 +64,7 @@ export default function BestsellersList() {
           <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Flipkart Bestsellers</h2>
         </div>
         
-        <div className="flex bg-gray-100 dark:bg-gray-800 p-1 rounded-lg self-start">
+        <div className="flex flex-wrap gap-1 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg self-start">
           {CATEGORIES.map(cat => (
             <button
               key={cat}

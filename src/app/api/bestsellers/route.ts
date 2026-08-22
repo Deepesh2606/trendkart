@@ -35,6 +35,21 @@ export async function GET(request: Request) {
       { id: 'ch1', rank: 1, name: 'Apple 20W USB-C Power Adapter', price: 1599, originalPrice: 1900, rating: 4.6, reviews: '1.2L+', link: 'https://www.flipkart.com/search?q=Apple+20W+USB-C+Power+Adapter', imageUrl: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=150&h=150' },
       { id: 'ch2', rank: 2, name: 'Ambrane 20W Fast Charger', price: 399, originalPrice: 999, rating: 4.2, reviews: '40K+', link: 'https://www.flipkart.com/search?q=Ambrane+20W+Fast+Charger', imageUrl: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=150&h=150' },
       { id: 'ch3', rank: 3, name: 'Samsung 25W Travel Adapter', price: 1199, originalPrice: 1699, rating: 4.5, reviews: '60K+', link: 'https://www.flipkart.com/search?q=Samsung+25W+Travel+Adapter', imageUrl: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=150&h=150' },
+    ],
+    'Speakers': [
+      { id: 'sp1', rank: 1, name: 'boAt Stone 352 Bluetooth Speaker', price: 1499, originalPrice: 3490, rating: 4.3, reviews: '2L+', link: 'https://www.flipkart.com/search?q=boAt+Stone+352', imageUrl: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=150&h=150' },
+      { id: 'sp2', rank: 2, name: 'JBL Go 3 Wireless Portable Speaker', price: 2999, originalPrice: 3999, rating: 4.6, reviews: '50K+', link: 'https://www.flipkart.com/search?q=JBL+Go+3', imageUrl: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=150&h=150' },
+      { id: 'sp3', rank: 3, name: 'Mivi Play Bluetooth Speaker', price: 799, originalPrice: 1999, rating: 4.1, reviews: '80K+', link: 'https://www.flipkart.com/search?q=Mivi+Play', imageUrl: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=150&h=150' },
+    ],
+    'Soundbars': [
+      { id: 'sb1', rank: 1, name: 'boAt Aavante Bar 1500 2.1 Ch', price: 4999, originalPrice: 13990, rating: 4.4, reviews: '90K+', link: 'https://www.flipkart.com/search?q=boAt+Aavante+Bar', imageUrl: 'https://images.unsplash.com/photo-1543682704-15adeb008ac4?auto=format&fit=crop&q=80&w=150&h=150' },
+      { id: 'sb2', rank: 2, name: 'JBL Cinema SB241', price: 7499, originalPrice: 14999, rating: 4.3, reviews: '20K+', link: 'https://www.flipkart.com/search?q=JBL+Cinema+SB241', imageUrl: 'https://images.unsplash.com/photo-1543682704-15adeb008ac4?auto=format&fit=crop&q=80&w=150&h=150' },
+      { id: 'sb3', rank: 3, name: 'Zebronics Juke Bar 3900', price: 3999, originalPrice: 11999, rating: 4.1, reviews: '30K+', link: 'https://www.flipkart.com/search?q=Zebronics+Juke+Bar', imageUrl: 'https://images.unsplash.com/photo-1543682704-15adeb008ac4?auto=format&fit=crop&q=80&w=150&h=150' },
+    ],
+    'SD Cards': [
+      { id: 'sd1', rank: 1, name: 'SanDisk Ultra 64 GB MicroSDXC', price: 449, originalPrice: 1000, rating: 4.5, reviews: '3L+', link: 'https://www.flipkart.com/search?q=SanDisk+Ultra+64+GB', imageUrl: 'https://images.unsplash.com/photo-1624514134746-8809c91b1eb7?auto=format&fit=crop&q=80&w=150&h=150' },
+      { id: 'sd2', rank: 2, name: 'Samsung EVO Plus 128 GB MicroSD', price: 899, originalPrice: 1899, rating: 4.6, reviews: '1.5L+', link: 'https://www.flipkart.com/search?q=Samsung+EVO+Plus+128GB', imageUrl: 'https://images.unsplash.com/photo-1624514134746-8809c91b1eb7?auto=format&fit=crop&q=80&w=150&h=150' },
+      { id: 'sd3', rank: 3, name: 'HP 64 GB MicroSDXC', price: 399, originalPrice: 900, rating: 4.2, reviews: '50K+', link: 'https://www.flipkart.com/search?q=HP+64+GB+MicroSDXC', imageUrl: 'https://images.unsplash.com/photo-1624514134746-8809c91b1eb7?auto=format&fit=crop&q=80&w=150&h=150' },
     ]
   };
 

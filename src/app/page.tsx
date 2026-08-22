@@ -1,59 +1,95 @@
+'use client';
+import { useState } from 'react';
 import TrendingKeywords from '@/components/TrendingKeywords';
 import BestsellersList from '@/components/BestsellersList';
 import WhatsHotCard from '@/components/WhatsHotCard';
 import ShopInventory from '@/components/ShopInventory';
-import { RefreshCcw, Activity } from 'lucide-react';
+import AnalyticsChart from '@/components/AnalyticsChart';
+import { RefreshCcw, Activity, Store, Heart } from 'lucide-react';
 
 export default function Home() {
+  const [isInventoryOpen, setIsInventoryOpen] = useState(false);
+  const [inventoryCount, setInventoryCount] = useState(0);
+  
   const currentTime = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 p-4 sm:p-6 lg:p-8">
-      <div className="max-w-[1400px] mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex flex-col">
+      
+      {/* Sticky Header Navbar */}
+      <nav className="sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="bg-blue-600 text-white p-1.5 rounded-lg shadow-sm">
+              <Activity size={20} />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold tracking-tight leading-none">TrendKart</h1>
+              <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5 uppercase tracking-wider font-semibold">Jalandhar Market</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-4">
+            <div className="hidden sm:flex items-center space-x-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full">
+              <RefreshCcw size={12} className="text-blue-500" />
+              <span>{currentTime}</span>
+            </div>
+            
+            <button 
+              onClick={() => setIsInventoryOpen(true)}
+              className="flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm"
+            >
+              <Store size={16} />
+              <span>My Shop</span>
+              <span className="bg-white/20 px-1.5 py-0.5 rounded-md text-xs">{inventoryCount}</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="flex-1 max-w-[1400px] w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
         
-        {/* Header */}
-        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-          <div>
-            <div className="flex items-center space-x-2">
-              <div className="bg-blue-600 text-white p-2 rounded-xl shadow-sm">
-                <Activity size={24} />
-              </div>
-              <h1 className="text-2xl font-bold tracking-tight">TrendKart</h1>
-            </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Jalandhar Local Market Intelligence</p>
+        {/* Top Analytics Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[350px]">
+          <div className="lg:col-span-8 h-full">
+            <AnalyticsChart />
           </div>
-          
-          <div className="flex items-center space-x-2 text-xs font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
-            <RefreshCcw size={14} className="text-blue-500" />
-            <span>Last updated: {currentTime}</span>
+          <div className="lg:col-span-4 h-full">
+            <WhatsHotCard />
           </div>
-        </header>
+        </div>
 
-        {/* Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[calc(100vh-140px)] min-h-[700px]">
-          
-          {/* Column 1: Market Trends (Left) */}
-          <div className="lg:col-span-3 h-full flex flex-col space-y-6">
-            <div className="flex-1">
-              <TrendingKeywords />
-            </div>
-            <div className="flex-1">
-              <WhatsHotCard />
-            </div>
+        {/* Bottom Data Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[500px]">
+          <div className="lg:col-span-4 h-full">
+            <TrendingKeywords />
           </div>
-
-          {/* Column 2: Bestseller Rankings (Middle) */}
-          <div className="lg:col-span-5 h-full">
+          <div className="lg:col-span-8 h-full">
             <BestsellersList />
           </div>
-
-          {/* Column 3: My Shop Inventory (Right) */}
-          <div className="lg:col-span-4 h-full">
-            <ShopInventory />
-          </div>
-
         </div>
-      </div>
+
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 mt-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between">
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+            © 2026 Accessories Hub Ltd. All rights reserved.
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center mt-2 sm:mt-0 font-medium">
+            Made with <Heart size={14} className="text-red-500 mx-1 fill-red-500 animate-pulse" /> Deepesh
+          </p>
+        </div>
+      </footer>
+
+      {/* Slide-out Drawer */}
+      <ShopInventory 
+        isOpen={isInventoryOpen} 
+        onClose={() => setIsInventoryOpen(false)} 
+        onCountChange={setInventoryCount}
+      />
     </div>
   );
 }
