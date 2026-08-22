@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Star, ShoppingBag, ExternalLink, Cable, Smartphone, Headphones, BatteryCharging, Plus, Speaker, MonitorSpeaker, HardDrive } from 'lucide-react';
+import { Star, ShoppingBag, ExternalLink, Cable, Smartphone, Headphones, BatteryCharging, Plus, Speaker, MonitorSpeaker, HardDrive, Car, Camera } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -14,7 +14,7 @@ interface Product {
   imageUrl?: string;
 }
 
-const CATEGORIES = ['Cables', 'Covers', 'Headsets', 'Wearables', 'Chargers', 'Speakers', 'Soundbars', 'SD Cards'];
+const CATEGORIES = ['Cables', 'Covers', 'Headsets', 'Wearables', 'Chargers', 'Speakers', 'Car Tech', 'Vlogging', 'Soundbars', 'SD Cards'];
 
 const CategoryIcon = ({ category, className }: { category: string, className?: string }) => {
   switch (category) {
@@ -26,6 +26,8 @@ const CategoryIcon = ({ category, className }: { category: string, className?: s
     case 'Speakers': return <Speaker className={className} />;
     case 'Soundbars': return <MonitorSpeaker className={className} />;
     case 'SD Cards': return <HardDrive className={className} />;
+    case 'Car Tech': return <Car className={className} />;
+    case 'Vlogging': return <Camera className={className} />;
     default: return <ShoppingBag className={className} />;
   }
 };

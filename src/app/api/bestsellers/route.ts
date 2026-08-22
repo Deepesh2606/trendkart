@@ -69,6 +69,22 @@ export async function GET(request: Request) {
       { id: 'sd4', rank: 4, name: 'Strontium Nitro 32 GB MicroSDHC', price: 299, originalPrice: 599, rating: 4.1, reviews: '2L+', link: 'https://www.google.com/search?q=Strontium+Nitro+32+GB' },
       { id: 'sd5', rank: 5, name: 'Kingston Canvas Select 128 GB', price: 849, originalPrice: 1599, rating: 4.3, reviews: '30K+', link: 'https://www.google.com/search?q=Kingston+Canvas+Select+128GB' },
       { id: 'sd6', rank: 6, name: 'SanDisk Extreme 128 GB MicroSD', price: 1499, originalPrice: 3200, rating: 4.7, reviews: '40K+', link: 'https://www.google.com/search?q=SanDisk+Extreme+128GB' },
+    ],
+    'Car Tech': [
+      { id: 'ct1', rank: 1, name: 'Generic Dashboard Dual USB Charger', price: 199, originalPrice: 499, rating: 4.0, reviews: '20K+', link: 'https://www.google.com/search?q=Generic+Dashboard+Dual+USB+Charger' },
+      { id: 'ct2', rank: 2, name: 'Magnetic AC Vent Phone Mount', price: 149, originalPrice: 399, rating: 4.1, reviews: '50K+', link: 'https://www.google.com/search?q=Magnetic+AC+Vent+Phone+Mount' },
+      { id: 'ct3', rank: 3, name: 'Universal Car Bluetooth Receiver', price: 299, originalPrice: 699, rating: 3.9, reviews: '35K+', link: 'https://www.google.com/search?q=Universal+Car+Bluetooth+Receiver' },
+      { id: 'ct4', rank: 4, name: 'T10 LED RGB Parking Bulbs', price: 99, originalPrice: 299, rating: 4.2, reviews: '80K+', link: 'https://www.google.com/search?q=T10+LED+RGB+Parking+Bulbs' },
+      { id: 'ct5', rank: 5, name: 'Generic Dual Dash Cam 1080p', price: 1499, originalPrice: 3999, rating: 3.8, reviews: '15K+', link: 'https://www.google.com/search?q=Generic+Dual+Dash+Cam+1080p' },
+      { id: 'ct6', rank: 6, name: 'Portronics Auto 12 Bluetooth', price: 599, originalPrice: 1299, rating: 4.3, reviews: '25K+', link: 'https://www.google.com/search?q=Portronics+Auto+12+Bluetooth' },
+    ],
+    'Vlogging': [
+      { id: 'vl1', rank: 1, name: 'Generic 10-inch Ring Light with Tripod', price: 499, originalPrice: 1599, rating: 4.1, reviews: '1L+', link: 'https://www.google.com/search?q=10-inch+Ring+Light+with+Tripod' },
+      { id: 'vl2', rank: 2, name: 'Wireless Collar Mic (Type-C/Lightning)', price: 399, originalPrice: 999, rating: 3.9, reviews: '85K+', link: 'https://www.google.com/search?q=Wireless+Collar+Mic+Type-C' },
+      { id: 'vl3', rank: 3, name: 'Flexible Gorilla Tripod', price: 249, originalPrice: 699, rating: 4.2, reviews: '1.5L+', link: 'https://www.google.com/search?q=Flexible+Gorilla+Tripod' },
+      { id: 'vl4', rank: 4, name: 'Digitek DTR 550LW Tripod', price: 1499, originalPrice: 2495, rating: 4.5, reviews: '60K+', link: 'https://www.google.com/search?q=Digitek+DTR+550LW+Tripod' },
+      { id: 'vl5', rank: 5, name: 'Generic Phone Gimbal Stabilizer', price: 2199, originalPrice: 4999, rating: 3.8, reviews: '12K+', link: 'https://www.google.com/search?q=Generic+Phone+Gimbal+Stabilizer' },
+      { id: 'vl6', rank: 6, name: 'RGB Pocket Video Light', price: 699, originalPrice: 1999, rating: 4.4, reviews: '30K+', link: 'https://www.google.com/search?q=RGB+Pocket+Video+Light' },
     ]
   };
 

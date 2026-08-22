@@ -27,11 +27,11 @@ export async function GET() {
     // Fallback Mock Data tailored for Mobile Accessories
     return NextResponse.json({
       trends: [
-        { keyword: "iPhone 15 Pro Max cover", volume: "10K+", trend: "up", percentage: 42 },
-        { keyword: "Type C fast charger 65W", volume: "8K+", trend: "up", percentage: 35 },
-        { keyword: "Airpods pro case cover", volume: "5K+", trend: "down", percentage: 12 },
-        { keyword: "Samsung S24 Ultra screen guard", volume: "5K+", trend: "up", percentage: 28 },
-        { keyword: "Boat Airdopes 141", volume: "4K+", trend: "up", percentage: 15 },
+        { keyword: "Generic dash cam dual channel", volume: "12K+", trend: "up", percentage: 55 },
+        { keyword: "10 inch ring light with tripod", volume: "9K+", trend: "up", percentage: 42 },
+        { keyword: "Type C to 3.5mm jack OTG adapter", volume: "8K+", trend: "up", percentage: 38 },
+        { keyword: "Universal magnetic car phone mount", volume: "6K+", trend: "up", percentage: 22 },
+        { keyword: "Flexible gorilla tripod stand", volume: "5K+", trend: "down", percentage: 15 },
       ]
     });
   }
