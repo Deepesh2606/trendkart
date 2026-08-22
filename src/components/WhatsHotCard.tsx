@@ -44,7 +44,7 @@ export default function WhatsHotCard() {
           className="w-full flex items-center justify-center space-x-2 bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/40 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
         >
           <span>Explore Latest Releases</span>
-          <ArrowUp size={16} className="group-hover:-tranzinc-y-1 group-hover:tranzinc-x-1 transition-transform rotate-45" />
+          <ArrowUp size={16} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform rotate-45" />
         </a>
       </div>
     </div>

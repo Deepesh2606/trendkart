@@ -95,7 +95,7 @@ export default function BestsellersList() {
         ) : (
           <div className="space-y-2">
             {products.map((product, idx) => (
-              <div key={product.id} className="group flex items-center p-3 bg-white dark:bg-zinc-900 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700/50 rounded-lg hover:bg-zinc-100/50 dark:hover:bg-zinc-800 transition-all duration-300 hover:shadow-sm hover:-tranzinc-y-0.5">
+              <div key={product.id} className="group flex items-center p-3 bg-white dark:bg-zinc-900 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700/50 rounded-lg hover:bg-zinc-100/50 dark:hover:bg-zinc-800 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
                 <div className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm mr-3 transition-colors ${idx < 3 ? 'bg-zinc-200 dark:bg-zinc-700/40 text-zinc-900 dark:text-zinc-100 group-hover:bg-zinc-300 dark:group-hover:bg-zinc-700' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700'}`}>
                   {product.rank}
                 </div>
@@ -150,7 +150,7 @@ export default function BestsellersList() {
             className="w-full flex items-center justify-center space-x-2 bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
           >
             <span>Explore more {activeCategory} on Google</span>
-            <ExternalLink size={16} className="group-hover:tranzinc-x-1 transition-transform" />
+            <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       )}

@@ -64,7 +64,7 @@ export default function TrendingKeywords() {
         ) : (
           <div className="space-y-3">
             {trends.map((trend, i) => (
-              <div key={i} className="group flex items-center justify-between p-3 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-100 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-700/50 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-sm hover:-tranzinc-y-0.5">
+              <div key={i} className="group flex items-center justify-between p-3 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-100 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-700/50 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
                 <div className="flex flex-col flex-1">
                   <span className="font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">{trend.keyword}</span>
                   <span className="text-xs text-zinc-500 dark:text-zinc-400">Vol: {trend.volume}</span>
@@ -101,7 +101,7 @@ export default function TrendingKeywords() {
             className="w-full flex items-center justify-center space-x-2 bg-white hover:bg-zinc-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group border border-zinc-200 dark:border-zinc-700"
           >
             <span>Explore Punjab Trends</span>
-            <ExternalLink size={16} className="group-hover:tranzinc-x-1 transition-transform" />
+            <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       )}

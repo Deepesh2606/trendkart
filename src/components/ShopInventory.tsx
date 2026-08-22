@@ -87,7 +87,7 @@ export default function ShopInventory({ isOpen, onClose, onCountChange }: ShopIn
       )}
 
       {/* Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-zinc-50 dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'tranzinc-x-0' : 'tranzinc-x-full'} flex flex-col`}>
+      <div className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-zinc-50 dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col`}>
         
         <div className="flex items-center justify-between p-5 border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
           <div className="flex items-center space-x-2">
