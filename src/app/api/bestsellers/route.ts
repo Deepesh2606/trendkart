@@ -64,7 +64,7 @@ export async function GET(request: Request) {
     ]
   };
 
-  const results = mockDatabase[category] || [];
+  const results = category === 'all' ? mockDatabase : (mockDatabase[category] || []);
 
   return NextResponse.json(
     { bestsellers: results },
