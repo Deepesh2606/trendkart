@@ -11,7 +11,7 @@ interface Message {
 export default function AiAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hello! I am your AI Market Assistant (powered by Grok). How can I help you optimize your inventory today?' }
+    { role: 'assistant', content: 'Hello! I am your AI Market Assistant (powered by Groq). How can I help you optimize your inventory today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

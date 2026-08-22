@@ -1,15 +1,14 @@
 import { NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import Groq from 'groq-sdk';
 
-const openai = new OpenAI({
-  apiKey: process.env.XAI_API_KEY || '',
-  baseURL: 'https://api.x.ai/v1',
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY || '',
 });
 
 export async function POST(req: Request) {
-  if (!process.env.XAI_API_KEY) {
+  if (!process.env.GROQ_API_KEY) {
     return NextResponse.json({ 
-      error: "API key is missing. Please add XAI_API_KEY to your .env.local file." 
+      error: "API key is missing. Please add GROQ_API_KEY to your .env.local file." 
     }, { status: 500 });
   }
 
@@ -29,9 +28,9 @@ Keep your responses concise, actionable, and professional.
 Format your responses using clean markdown (bolding, lists) to make it easy to scan.`
     };
 
-    const completion = await openai.chat.completions.create({
+    const completion = await groq.chat.completions.create({
       messages: [systemPrompt, ...messages],
-      model: "grok-beta", // Using Grok
+      model: "llama3-8b-8192", // Fast Groq model
       temperature: 0.7,
       max_tokens: 1024,
     });
@@ -41,7 +40,7 @@ Format your responses using clean markdown (bolding, lists) to make it easy to s
     return NextResponse.json({ message: aiMessage });
 
   } catch (error: any) {
-    console.error("xAI API Error:", error);
-    return NextResponse.json({ error: error.message || "Failed to communicate with Grok" }, { status: 500 });
+    console.error("Groq API Error:", error);
+    return NextResponse.json({ error: error.message || "Failed to communicate with Groq" }, { status: 500 });
   }
 }
