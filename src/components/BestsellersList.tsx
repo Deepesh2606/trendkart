@@ -139,6 +139,21 @@ export default function BestsellersList() {
           </div>
         )}
       </div>
+
+      {/* Explore More Button */}
+      {!loading && (
+        <div className="pt-4 mt-2 border-t border-slate-100 dark:border-slate-800 shrink-0">
+          <a 
+            href={`https://www.google.com/search?q=best+trending+mobile+${activeCategory.toLowerCase()}+in+india+2024`}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-center space-x-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-teal-600 dark:text-teal-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
+          >
+            <span>Explore more {activeCategory} on Google</span>
+            <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      )}
       <style dangerouslySetInnerHTML={{__html: `
         .custom-scrollbar::-webkit-scrollbar {
           width: 4px;

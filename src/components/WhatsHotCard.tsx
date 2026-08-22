@@ -31,11 +31,21 @@ export default function WhatsHotCard() {
         ))}
       </div>
       
-      <div className="mt-6 pt-5 border-t border-orange-200/50 dark:border-orange-900/30">
+      <div className="mt-6 pt-5 border-t border-orange-200/50 dark:border-orange-900/30 space-y-4">
         <div className="text-xs text-slate-500 dark:text-slate-400 flex justify-between items-center">
           <span>Based on WoW search volume</span>
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
         </div>
+        
+        <a 
+          href={`https://www.google.com/search?q=latest+trending+mobile+accessories+in+india+2024`}
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-full flex items-center justify-center space-x-2 bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/40 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
+        >
+          <span>Explore Latest Releases</span>
+          <ArrowUp size={16} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform rotate-45" />
+        </a>
       </div>
     </div>
   );
