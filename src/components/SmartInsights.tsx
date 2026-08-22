@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Lightbulb, AlertTriangle, TrendingUp, DollarSign, Plus, PackageX } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 interface InventoryItem {
   id: string;
@@ -28,8 +29,15 @@ interface InsightCard {
   product: Product;
 }
 
+interface ChartData {
+  category: string;
+  marketItems: number;
+  shopItems: number;
+}
+
 export default function SmartInsights() {
   const [cards, setCards] = useState<InsightCard[]>([]);
+  const [chartData, setChartData] = useState<ChartData[]>([]);
   const [loading, setLoading] = useState(true);
 
   const handleAction = (product: Product, type: string) => {
@@ -50,16 +58,27 @@ export default function SmartInsights() {
         const res = await fetch('/api/bestsellers?category=all');
         const data = await res.json();
         
-        // Flatten categories
         let allProducts: Product[] = [];
+        const cData: ChartData[] = [];
+
         Object.keys(data.bestsellers).forEach(cat => {
           const items = data.bestsellers[cat].map((item: any) => ({ ...item, category: cat }));
           allProducts = [...allProducts, ...items];
+          
+          // Compute chart data
+          const shopStock = inventory.filter(i => i.category === cat && i.status !== 'Out of Stock').length;
+          cData.push({
+            category: cat,
+            marketItems: items.length,
+            shopItems: shopStock
+          });
         });
+        
+        setChartData(cData);
 
         const unstocked = allProducts.filter(p => !inventory.find(i => i.name === p.name));
         
-        // 1. High Margin Sourcing (Find most expensive unstocked item)
+        // 1. High Margin Sourcing
         const premiumItem = [...unstocked].sort((a, b) => b.price - a.price)[0];
         if (premiumItem) {
           const marginPercent = premiumItem.price > 2000 ? 35 : 45;
@@ -79,13 +98,12 @@ export default function SmartInsights() {
           });
         }
 
-        // 2. Lost Revenue Warning (Check Out of Stock items)
+        // 2. Lost Revenue Warning
         const outOfStock = inventory.filter(i => i.status === 'Out of Stock');
         if (outOfStock.length > 0) {
           const oosItem = outOfStock[0];
-          // Find the product to get price
           const productMatch = allProducts.find(p => p.name === oosItem.name) || { id: oosItem.id, name: oosItem.name, price: 999 };
-          const estimatedLost = productMatch.price * 3; // Assume 3 lost sales a day
+          const estimatedLost = productMatch.price * 3; 
           
           newCards.push({
             id: 'revenue-card',
@@ -99,7 +117,6 @@ export default function SmartInsights() {
             product: productMatch
           });
         } else {
-          // If no out of stock, suggest a cheap fast mover
           const cheapItem = [...unstocked].sort((a, b) => a.price - b.price)[0];
           if (cheapItem) {
             newCards.push({
@@ -117,7 +134,6 @@ export default function SmartInsights() {
         }
 
         // 3. Fast Mover Category match
-        // Find a highly ranked item they don't have
         const topItem = unstocked.find(p => (p as any).rank === 1);
         if (topItem) {
           newCards.push({
@@ -137,7 +153,7 @@ export default function SmartInsights() {
         console.error(e);
       }
 
-      setCards(newCards.slice(0, 3)); // Ensure max 3 cards
+      setCards(newCards.slice(0, 3));
       setLoading(false);
     };
 
@@ -152,6 +168,19 @@ export default function SmartInsights() {
     };
   }, []);
 
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-slate-900 text-white text-xs p-3 rounded-lg shadow-xl border border-slate-700">
+          <p className="font-bold mb-1">{label}</p>
+          <p className="text-slate-300">Market Trending: <span className="text-indigo-400 font-bold">{payload[0].value} items</span></p>
+          <p className="text-slate-300">Your Shop Stock: <span className="text-emerald-400 font-bold">{payload[1].value} items</span></p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="flex flex-col h-full space-y-4">
       <div className="flex items-center justify-between">
@@ -159,49 +188,82 @@ export default function SmartInsights() {
           <div className="p-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg shadow-sm">
             <Lightbulb size={20} />
           </div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Market Opportunities</h2>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Market Intelligence</h2>
         </div>
       </div>
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {loading ? (
-          [...Array(3)].map((_, i) => (
-            <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm animate-pulse h-[220px]">
-               <div className="h-10 w-10 bg-slate-200 dark:bg-slate-800 rounded-full mb-4"></div>
-               <div className="h-5 w-3/4 bg-slate-200 dark:bg-slate-800 rounded mb-2"></div>
-               <div className="h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded mb-6"></div>
-               <div className="h-8 w-full bg-slate-200 dark:bg-slate-800 rounded"></div>
-            </div>
-          ))
-        ) : (
-          cards.map(card => (
-            <div key={card.id} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group">
-              <div>
-                <div className="flex items-start justify-between mb-3">
-                  <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-300">
-                    {card.icon}
+      <div className="flex-1 flex flex-col xl:flex-row gap-4 h-full">
+        {/* Left Side: Cards */}
+        <div className="w-full xl:w-1/3 flex flex-col gap-4 overflow-y-auto custom-scrollbar pr-1">
+          {loading ? (
+            [...Array(3)].map((_, i) => (
+              <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm animate-pulse h-[160px]"></div>
+            ))
+          ) : (
+            cards.map(card => (
+              <div key={card.id} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group shrink-0">
+                <div>
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="p-1.5 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform duration-300">
+                      {card.icon}
+                    </div>
+                    <span className={"text-[10px] font-bold px-2 py-0.5 rounded-full ring-1 " + card.badgeColor}>
+                      {card.badgeText}
+                    </span>
                   </div>
-                  <span className={"text-xs font-bold px-2.5 py-1 rounded-full ring-1 " + card.badgeColor}>
-                    {card.badgeText}
-                  </span>
+                  <h3 className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-0.5">{card.title}</h3>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight mb-1 truncate">{card.productName}</h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-snug line-clamp-2">
+                    {card.description}
+                  </p>
                 </div>
-                <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">{card.title}</h3>
-                <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2 line-clamp-2">{card.productName}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {card.description}
-                </p>
+                
+                <button 
+                  onClick={() => handleAction(card.product, card.type)}
+                  className="mt-3 w-full flex items-center justify-center space-x-1.5 bg-slate-100 hover:bg-indigo-600 dark:bg-slate-800 dark:hover:bg-indigo-600 text-slate-700 hover:text-white dark:text-slate-300 py-1.5 rounded-lg font-medium text-xs transition-colors active:scale-[0.97] custom-focus-ring"
+                >
+                  <Plus size={14} />
+                  <span>{card.type === 'revenue' ? 'Restock' : 'Track'}</span>
+                </button>
               </div>
-              
-              <button 
-                onClick={() => handleAction(card.product, card.type)}
-                className="mt-5 w-full flex items-center justify-center space-x-2 bg-slate-100 hover:bg-indigo-600 dark:bg-slate-800 dark:hover:bg-indigo-600 text-slate-700 hover:text-white dark:text-slate-300 py-2.5 rounded-xl font-semibold text-sm transition-colors active:scale-[0.97] custom-focus-ring"
-              >
-                <Plus size={16} />
-                <span>{card.type === 'revenue' ? 'Restock Now' : 'Track in Shop'}</span>
-              </button>
-            </div>
-          ))
-        )}
+            ))
+          )}
+        </div>
+
+        {/* Right Side: Graph */}
+        <div className="w-full xl:w-2/3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col">
+          <div className="mb-4">
+            <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200">Inventory Deficit vs Market Demand</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Tracking how many trending items you currently carry per category.</p>
+          </div>
+          
+          <div className="flex-1 w-full min-h-[250px]">
+            {loading ? (
+              <div className="w-full h-full bg-slate-100 dark:bg-slate-800/50 rounded-xl animate-pulse"></div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                  <XAxis 
+                    dataKey="category" 
+                    stroke="#94a3b8" 
+                    fontSize={10} 
+                    tickLine={false} 
+                    axisLine={false}
+                  />
+                  <YAxis 
+                    stroke="#94a3b8" 
+                    fontSize={10} 
+                    tickLine={false} 
+                    axisLine={false}
+                  />
+                  <Tooltip cursor={{ fill: 'transparent' }} content={<CustomTooltip />} />
+                  <Bar dataKey="marketItems" name="Market Trend" fill="#4f46e5" radius={[4, 4, 0, 0]} barSize={20} />
+                  <Bar dataKey="shopItems" name="Your Stock" fill="#10b981" radius={[4, 4, 0, 0]} barSize={20} />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

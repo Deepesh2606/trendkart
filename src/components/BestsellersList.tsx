@@ -14,13 +14,14 @@ interface Product {
   imageUrl?: string;
 }
 
-const CATEGORIES = ['Cables', 'Covers', 'Headsets', 'Chargers', 'Speakers', 'Soundbars', 'SD Cards'];
+const CATEGORIES = ['Cables', 'Covers', 'Headsets', 'Wearables', 'Chargers', 'Speakers', 'Soundbars', 'SD Cards'];
 
 const CategoryIcon = ({ category, className }: { category: string, className?: string }) => {
   switch (category) {
     case 'Cables': return <Cable className={className} />;
     case 'Covers': return <Smartphone className={className} />;
     case 'Headsets': return <Headphones className={className} />;
+    case 'Wearables': return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="4"></rect><path d="M12 18h.01"></path></svg>; // Generic smartwatch icon using svg
     case 'Chargers': return <BatteryCharging className={className} />;
     case 'Speakers': return <Speaker className={className} />;
     case 'Soundbars': return <MonitorSpeaker className={className} />;
