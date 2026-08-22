@@ -3,21 +3,34 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-blue-accent: #2a78d6;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --chart-market: #18181b; /* zinc-900 */
+  --chart-stock: #a1a1aa; /* zinc-400 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --chart-market: #f4f4f5; /* zinc-100 */
+    --chart-stock: #52525b; /* zinc-500 */
   }
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --chart-market: #f4f4f5; /* zinc-100 */
+  --chart-stock: #52525b; /* zinc-500 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-chart-market: var(--chart-market);
+  --color-chart-stock: var(--chart-stock);
+  --color-blue-accent: #2a78d6;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 html {
@@ -36,11 +49,30 @@ body {
 }
 
 ::selection {
-  background-color: rgba(13, 148, 136, 0.2); /* tailwind teal-600 with opacity */
-  color: inherit;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.dark ::selection {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
 }
 
 .custom-focus-ring:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #0d9488;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #18181b; /* zinc-900 */
+}
+
+.dark .custom-focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #e4e4e7; /* zinc-200 */
+}
+
+/* Enforce Bolder Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-weight: 700 !important;
 }

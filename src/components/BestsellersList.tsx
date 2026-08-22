@@ -56,21 +56,21 @@ export default function BestsellersList() {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
+    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 space-y-4 sm:space-y-0">
         <div className="flex items-center space-x-2">
-          <div className="p-2 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
+          <div className="p-2 bg-zinc-200 dark:bg-zinc-700/30 text-zinc-900 dark:text-zinc-100 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
             <ShoppingBag size={20} />
           </div>
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Flipkart Bestsellers</h2>
+          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Flipkart Bestsellers</h2>
         </div>
         
-        <div className="flex flex-wrap gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg self-start select-none">
+        <div className="flex flex-wrap gap-1 bg-zinc-100 dark:bg-zinc-800 p-1 rounded-lg self-start select-none">
           {CATEGORIES.map(cat => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-300 custom-focus-ring ${activeCategory === cat ? 'bg-white dark:bg-slate-700 text-teal-600 dark:text-teal-400 shadow-sm scale-[1.03]' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'}`}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-300 custom-focus-ring ${activeCategory === cat ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-sm scale-[1.03]' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'}`}
             >
               {cat}
             </button>
@@ -82,12 +82,12 @@ export default function BestsellersList() {
         {loading ? (
           <div className="space-y-3">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="animate-pulse flex items-center p-3 border-b border-slate-100 dark:border-slate-800">
-                <div className="w-6 h-6 bg-slate-200 dark:bg-slate-700 rounded-full mr-4"></div>
-                <div className="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-md mr-3"></div>
+              <div key={i} className="animate-pulse flex items-center p-3 border-b border-zinc-100 dark:border-zinc-800">
+                <div className="w-6 h-6 bg-zinc-200 dark:bg-zinc-700 rounded-full mr-4"></div>
+                <div className="w-10 h-10 bg-zinc-200 dark:bg-zinc-700 rounded-md mr-3"></div>
                 <div className="flex-1 space-y-2">
-                  <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
-                  <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-1/4"></div>
+                  <div className="h-4 bg-zinc-200 dark:bg-zinc-700 rounded w-3/4"></div>
+                  <div className="h-3 bg-zinc-200 dark:bg-zinc-700 rounded w-1/4"></div>
                 </div>
               </div>
             ))}
@@ -95,20 +95,20 @@ export default function BestsellersList() {
         ) : (
           <div className="space-y-2">
             {products.map((product, idx) => (
-              <div key={product.id} className="group flex items-center p-3 bg-white dark:bg-slate-900 border border-transparent hover:border-teal-100 dark:hover:border-teal-900/50 rounded-lg hover:bg-teal-50/50 dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
-                <div className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm mr-3 transition-colors ${idx < 3 ? 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-400 group-hover:bg-teal-200 dark:group-hover:bg-teal-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-700'}`}>
+              <div key={product.id} className="group flex items-center p-3 bg-white dark:bg-zinc-900 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700/50 rounded-lg hover:bg-zinc-100/50 dark:hover:bg-zinc-800 transition-all duration-300 hover:shadow-sm hover:-tranzinc-y-0.5">
+                <div className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm mr-3 transition-colors ${idx < 3 ? 'bg-zinc-200 dark:bg-zinc-700/40 text-zinc-900 dark:text-zinc-100 group-hover:bg-zinc-300 dark:group-hover:bg-zinc-700' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700'}`}>
                   {product.rank}
                 </div>
                 
-                <div className="w-10 h-10 flex flex-shrink-0 items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-lg mr-3 text-slate-500 dark:text-slate-400 group-hover:text-teal-500 transition-colors">
+                <div className="w-10 h-10 flex flex-shrink-0 items-center justify-center bg-zinc-100 dark:bg-zinc-800 rounded-lg mr-3 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-300 transition-colors">
                   <CategoryIcon category={activeCategory} className="w-5 h-5" />
                 </div>
                 
                 <div className="flex-1 min-w-0 pr-4">
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="block text-sm font-medium text-slate-900 dark:text-slate-100 truncate hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="block text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
                     {product.name}
                   </a>
-                  <div className="flex items-center text-xs text-slate-500 dark:text-slate-400 mt-1 space-x-3">
+                  <div className="flex items-center text-xs text-zinc-500 dark:text-zinc-400 mt-1 space-x-3">
                     <span className="flex items-center">
                       <Star size={12} className="text-yellow-400 mr-1 fill-yellow-400" />
                       {product.rating} ({product.reviews})
@@ -117,11 +117,11 @@ export default function BestsellersList() {
                 </div>
                 
                 <div className="text-right flex flex-col items-end justify-center mr-2">
-                  <span className="text-sm font-bold text-slate-900 dark:text-slate-100">₹{product.price}</span>
+                  <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100">₹{product.price}</span>
                   {product.originalPrice > product.price && (
-                    <span className="text-xs text-slate-400 line-through">₹{product.originalPrice}</span>
+                    <span className="text-xs text-zinc-400 line-through">₹{product.originalPrice}</span>
                   )}
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-500 transition-colors mt-1 hidden sm:block opacity-0 group-hover:opacity-100">
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-300 transition-colors mt-1 hidden sm:block opacity-0 group-hover:opacity-100">
                     <ExternalLink size={14} />
                   </a>
                 </div>
@@ -130,7 +130,7 @@ export default function BestsellersList() {
                   onClick={() => addToInventory(product)}
                   aria-label="Add to Shop Inventory"
                   title="Add to Shop Inventory"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-teal-600 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-900 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
                 >
                   <Plus size={16} />
                 </button>
@@ -142,15 +142,15 @@ export default function BestsellersList() {
 
       {/* Explore More Button */}
       {!loading && (
-        <div className="pt-4 mt-2 border-t border-slate-100 dark:border-slate-800 shrink-0">
+        <div className="pt-4 mt-2 border-t border-zinc-100 dark:border-zinc-800 shrink-0">
           <a 
             href={`https://www.google.com/search?q=best+trending+mobile+${activeCategory.toLowerCase()}+in+india+2024`}
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center space-x-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/50 dark:hover:bg-slate-800 text-teal-600 dark:text-teal-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
+            className="w-full flex items-center justify-center space-x-2 bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-800/50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
           >
             <span>Explore more {activeCategory} on Google</span>
-            <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ExternalLink size={16} className="group-hover:tranzinc-x-1 transition-transform" />
           </a>
         </div>
       )}
