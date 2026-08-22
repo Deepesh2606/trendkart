@@ -59,7 +59,7 @@ export default function BestsellersList() {
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 space-y-4 sm:space-y-0">
         <div className="flex items-center space-x-2">
-          <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
+          <div className="p-2 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
             <ShoppingBag size={20} />
           </div>
           <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Flipkart Bestsellers</h2>
@@ -70,7 +70,7 @@ export default function BestsellersList() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-300 custom-focus-ring ${activeCategory === cat ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-sm scale-[1.03]' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'}`}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-300 custom-focus-ring ${activeCategory === cat ? 'bg-white dark:bg-slate-700 text-teal-600 dark:text-teal-400 shadow-sm scale-[1.03]' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'}`}
             >
               {cat}
             </button>
@@ -95,17 +95,17 @@ export default function BestsellersList() {
         ) : (
           <div className="space-y-2">
             {products.map((product, idx) => (
-              <div key={product.id} className="group flex items-center p-3 bg-white dark:bg-slate-900 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900/50 rounded-lg hover:bg-indigo-50/50 dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
-                <div className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm mr-3 transition-colors ${idx < 3 ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-400 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-700'}`}>
+              <div key={product.id} className="group flex items-center p-3 bg-white dark:bg-slate-900 border border-transparent hover:border-teal-100 dark:hover:border-teal-900/50 rounded-lg hover:bg-teal-50/50 dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-sm hover:-translate-y-0.5">
+                <div className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm mr-3 transition-colors ${idx < 3 ? 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-400 group-hover:bg-teal-200 dark:group-hover:bg-teal-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-700'}`}>
                   {product.rank}
                 </div>
                 
-                <div className="w-10 h-10 flex flex-shrink-0 items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-lg mr-3 text-slate-500 dark:text-slate-400 group-hover:text-indigo-500 transition-colors">
+                <div className="w-10 h-10 flex flex-shrink-0 items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-lg mr-3 text-slate-500 dark:text-slate-400 group-hover:text-teal-500 transition-colors">
                   <CategoryIcon category={activeCategory} className="w-5 h-5" />
                 </div>
                 
                 <div className="flex-1 min-w-0 pr-4">
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="block text-sm font-medium text-slate-900 dark:text-slate-100 truncate hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="block text-sm font-medium text-slate-900 dark:text-slate-100 truncate hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                     {product.name}
                   </a>
                   <div className="flex items-center text-xs text-slate-500 dark:text-slate-400 mt-1 space-x-3">
@@ -121,7 +121,7 @@ export default function BestsellersList() {
                   {product.originalPrice > product.price && (
                     <span className="text-xs text-slate-400 line-through">₹{product.originalPrice}</span>
                   )}
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-500 transition-colors mt-1 hidden sm:block opacity-0 group-hover:opacity-100">
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-500 transition-colors mt-1 hidden sm:block opacity-0 group-hover:opacity-100">
                     <ExternalLink size={14} />
                   </a>
                 </div>
@@ -130,7 +130,7 @@ export default function BestsellersList() {
                   onClick={() => addToInventory(product)}
                   aria-label="Add to Shop Inventory"
                   title="Add to Shop Inventory"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-indigo-600 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-teal-600 hover:text-white transition-all transform hover:scale-110 active:scale-[0.97] custom-focus-ring"
                 >
                   <Plus size={16} />
                 </button>

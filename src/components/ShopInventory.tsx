@@ -91,13 +91,13 @@ export default function ShopInventory({ isOpen, onClose, onCountChange }: ShopIn
         
         <div className="flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           <div className="flex items-center space-x-2">
-            <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg">
+            <div className="p-2 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-lg">
               <Store size={20} />
             </div>
             <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">My Jalandhar Shop</h2>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200 text-xs font-bold px-2 py-1 rounded-full select-none">
+            <span className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200 text-xs font-bold px-2 py-1 rounded-full select-none">
               {inventory.length} Items
             </span>
             <button 
@@ -119,7 +119,7 @@ export default function ShopInventory({ isOpen, onClose, onCountChange }: ShopIn
             </div>
           ) : (
             inventory.map((item) => (
-              <div key={item.id} className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700/50 hover:border-indigo-200 dark:hover:border-indigo-900/50 transition-colors shadow-sm">
+              <div key={item.id} className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700/50 hover:border-teal-200 dark:hover:border-teal-900/50 transition-colors shadow-sm">
                 <div className="flex justify-between items-start mb-3">
                   <div>
                     <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-tight">{item.name}</h3>
@@ -143,7 +143,7 @@ export default function ShopInventory({ isOpen, onClose, onCountChange }: ShopIn
                   </button>
                   <button 
                     onClick={() => updateStatus(item.id, 'Ordered')}
-                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors active:scale-[0.97] custom-focus-ring ${item.status === 'Ordered' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-400 ring-1 ring-indigo-500/30' : 'bg-slate-50 dark:bg-slate-700/50 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'}`}
+                    className={`flex-1 flex items-center justify-center py-1.5 rounded-lg text-xs font-medium transition-colors active:scale-[0.97] custom-focus-ring ${item.status === 'Ordered' ? 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-400 ring-1 ring-teal-500/30' : 'bg-slate-50 dark:bg-slate-700/50 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'}`}
                   >
                     <Clock size={14} className="mr-1.5" /> Ordered
                   </button>

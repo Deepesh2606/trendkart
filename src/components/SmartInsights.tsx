@@ -143,8 +143,8 @@ export default function SmartInsights() {
             productName: topItem.name,
             description: "Ranked #1 in " + (topItem.category || "its category") + " locally. High demand expected this weekend.",
             badgeText: "Trending #1",
-            badgeColor: 'text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/40 ring-indigo-500/30',
-            icon: <TrendingUp size={20} className="text-indigo-600 dark:text-indigo-400" />,
+            badgeColor: 'text-teal-700 dark:text-teal-300 bg-teal-100 dark:bg-teal-900/40 ring-teal-500/30',
+            icon: <TrendingUp size={20} className="text-teal-600 dark:text-teal-400" />,
             product: topItem
           });
         }
@@ -173,7 +173,7 @@ export default function SmartInsights() {
       return (
         <div className="bg-slate-900 text-white text-xs p-3 rounded-lg shadow-xl border border-slate-700">
           <p className="font-bold mb-1">{label}</p>
-          <p className="text-slate-300">Market Trending: <span className="text-indigo-400 font-bold">{payload[0].value} items</span></p>
+          <p className="text-slate-300">Market Trending: <span className="text-teal-400 font-bold">{payload[0].value} items</span></p>
           <p className="text-slate-300">Your Shop Stock: <span className="text-emerald-400 font-bold">{payload[1].value} items</span></p>
         </div>
       );
@@ -220,7 +220,7 @@ export default function SmartInsights() {
                 
                 <button 
                   onClick={() => handleAction(card.product, card.type)}
-                  className="mt-3 w-full flex items-center justify-center space-x-1.5 bg-slate-100 hover:bg-indigo-600 dark:bg-slate-800 dark:hover:bg-indigo-600 text-slate-700 hover:text-white dark:text-slate-300 py-1.5 rounded-lg font-medium text-xs transition-colors active:scale-[0.97] custom-focus-ring"
+                  className="mt-3 w-full flex items-center justify-center space-x-1.5 bg-slate-100 hover:bg-teal-600 dark:bg-slate-800 dark:hover:bg-teal-600 text-slate-700 hover:text-white dark:text-slate-300 py-1.5 rounded-lg font-medium text-xs transition-colors active:scale-[0.97] custom-focus-ring"
                 >
                   <Plus size={14} />
                   <span>{card.type === 'revenue' ? 'Restock' : 'Track'}</span>
@@ -257,7 +257,7 @@ export default function SmartInsights() {
                     axisLine={false}
                   />
                   <Tooltip cursor={{ fill: 'transparent' }} content={<CustomTooltip />} />
-                  <Bar dataKey="marketItems" name="Market Trend" fill="#4f46e5" radius={[4, 4, 0, 0]} barSize={20} />
+                  <Bar dataKey="marketItems" name="Market Trend" fill="#0d9488" radius={[4, 4, 0, 0]} barSize={20} />
                   <Bar dataKey="shopItems" name="Your Stock" fill="#10b981" radius={[4, 4, 0, 0]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>

@@ -21,7 +21,7 @@ export default function Home() {
       <nav className="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="bg-indigo-600 text-white p-1.5 rounded-lg shadow-sm">
+            <div className="bg-teal-600 text-white p-1.5 rounded-lg shadow-sm">
               <Activity size={20} />
             </div>
             <div>
@@ -32,13 +32,13 @@ export default function Home() {
           
           <div className="flex items-center space-x-4">
             <div className="hidden sm:flex items-center space-x-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-inner">
-              <RefreshCcw size={12} className="text-indigo-500" />
+              <RefreshCcw size={12} className="text-teal-500" />
               <span>{currentTime}</span>
             </div>
             
             <button 
               onClick={() => setIsInventoryOpen(true)}
-              className="flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm active:scale-[0.97] custom-focus-ring"
+              className="flex items-center space-x-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm active:scale-[0.97] custom-focus-ring"
             >
               <Store size={16} />
               <span>My Shop</span>
@@ -77,10 +77,10 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white mt-8 border-t-4 border-indigo-600">
+      <footer className="bg-slate-900 text-white mt-8 border-t-4 border-teal-600">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between">
           <div className="flex items-center space-x-2 mb-4 sm:mb-0">
-            <div className="bg-indigo-600 p-1.5 rounded-lg shadow-sm">
+            <div className="bg-teal-600 p-1.5 rounded-lg shadow-sm">
               <Activity size={18} className="text-white" />
             </div>
             <span className="text-lg font-bold tracking-wider uppercase text-slate-100">Accessories Hub Ltd.</span>
