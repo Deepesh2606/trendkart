@@ -73,13 +73,19 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 mt-8">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between">
-          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-            © 2026 Accessories Hub Ltd. All rights reserved.
-          </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center mt-2 sm:mt-0 font-medium">
-            Made with <Heart size={14} className="text-red-500 mx-1 fill-red-500 animate-pulse" /> Deepesh
+      <footer className="bg-gray-900 text-white mt-8 border-t-4 border-blue-600">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between">
+          <div className="flex items-center space-x-2 mb-4 sm:mb-0">
+            <div className="bg-blue-600 p-1.5 rounded-lg">
+              <Activity size={18} className="text-white" />
+            </div>
+            <span className="text-lg font-bold tracking-wider uppercase">Accessories Hub Ltd.</span>
+          </div>
+          
+          <p className="text-sm text-gray-400 font-medium flex items-center">
+            © 2026 All rights reserved. 
+            <span className="mx-2">|</span> 
+            Made with <Heart size={14} className="text-red-500 mx-1.5 fill-red-500" /> by Deepesh
           </p>
         </div>
       </footer>
