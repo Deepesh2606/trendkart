@@ -25,7 +25,10 @@ export default function Home() {
               <Activity size={20} />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight leading-none text-stone-900 dark:text-white">TrendKart</h1>
+              <div className="flex items-center space-x-2">
+                <h1 className="text-xl font-bold tracking-tight leading-none text-stone-900 dark:text-white">TrendKart</h1>
+                <span className="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-sm tracking-widest border border-orange-200 dark:border-orange-800/50">Under Development</span>
+              </div>
               <p className="text-[10px] text-stone-500 dark:text-stone-400 mt-0.5 uppercase tracking-wider font-semibold">Jalandhar Market</p>
             </div>
           </div>
