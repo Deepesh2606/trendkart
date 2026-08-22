@@ -90,10 +90,17 @@ export default function Home() {
           </div>
           
           <p className="text-sm text-stone-400 font-medium flex items-center">
-            © 2026 All rights reserved. 
-            <span className="mx-2 text-stone-700">|</span> 
-            Powered by TrendKart Market Intelligence
-          </p>
+  © 2026 All rights reserved. 
+  <span className="mx-2 text-stone-700">|</span> 
+  <a 
+    href="https://github.com/deepesh2606" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="hover:text-stone-300 transition-colors"
+  >
+    Deepesh
+  </a>
+</p>
         </div>
       </footer>
 
