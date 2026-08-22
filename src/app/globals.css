@@ -36,11 +36,11 @@ body {
 }
 
 ::selection {
-  background-color: rgba(37, 99, 235, 0.2); /* tailwind blue-600 with opacity */
+  background-color: rgba(79, 70, 229, 0.2); /* tailwind indigo-600 with opacity */
   color: inherit;
 }
 
 .custom-focus-ring:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #2563eb;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #4f46e5;
 }

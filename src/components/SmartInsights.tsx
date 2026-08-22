@@ -80,7 +80,7 @@ export default function SmartInsights() {
         title: 'Inventory Health',
         description: "You are currently carrying " + stocked.length + " active top-trending products on your shelves.",
         icon: <Package size={20} />,
-        color: 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 ring-blue-500/30'
+        color: 'text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 ring-indigo-500/30'
       });
 
       setInsights(newInsights);
@@ -102,20 +102,20 @@ export default function SmartInsights() {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-sm h-full flex flex-col group/container hover:shadow-md transition-shadow duration-300">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-2">
           <div className="p-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-lg group-hover/container:scale-110 transition-transform duration-300">
             <Lightbulb size={20} />
           </div>
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Smart Insights</h2>
+          <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Smart Insights</h2>
         </div>
         <div className="flex items-center text-xs font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-md select-none">
           <TrendingUp size={14} className="mr-1" /> Actionable Data
         </div>
       </div>
       
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
         Automated recommendations based on Jalandhar market trends vs your current shop stock.
       </p>
 
@@ -123,18 +123,18 @@ export default function SmartInsights() {
         {loading ? (
           <div className="animate-pulse space-y-4">
             {[...Array(3)].map((_, i) => (
-              <div key={i} className="h-20 bg-gray-100 dark:bg-gray-800 rounded-xl"></div>
+              <div key={i} className="h-20 bg-slate-100 dark:bg-slate-800 rounded-xl"></div>
             ))}
           </div>
         ) : (
           insights.map((insight, idx) => (
-            <div key={idx} className="flex items-start p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+            <div key={idx} className="flex items-start p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
               <div className={"flex-shrink-0 p-2 rounded-lg ring-1 " + insight.color + " mr-4"}>
                 {insight.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100">{insight.title}</h3>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{insight.title}</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                   {insight.description}
                 </p>
               </div>

@@ -13,15 +13,15 @@ export default function WhatsHotCard() {
         <div className="p-2 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-lg">
           <Flame size={20} />
         </div>
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">What's Hot</h2>
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">What's Hot</h2>
       </div>
 
       <div className="space-y-4">
         {hotProducts.map((product, idx) => (
-          <div key={idx} className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm p-4 rounded-xl border border-white/40 dark:border-gray-800 flex justify-between items-center hover:shadow-md transition-shadow cursor-default">
+          <div key={idx} className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm p-4 rounded-xl border border-white/40 dark:border-slate-800 flex justify-between items-center hover:shadow-md transition-shadow cursor-default">
             <div>
-              <h3 className="font-medium text-sm text-gray-900 dark:text-gray-100 mb-1">{product.name}</h3>
-              <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-md">{product.category}</span>
+              <h3 className="font-medium text-sm text-slate-900 dark:text-slate-100 mb-1">{product.name}</h3>
+              <span className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">{product.category}</span>
             </div>
             <div className="flex items-center text-red-600 dark:text-red-400 font-bold text-sm bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-lg">
               <ArrowUp size={14} className="mr-1" />
@@ -32,7 +32,7 @@ export default function WhatsHotCard() {
       </div>
       
       <div className="mt-6 pt-5 border-t border-orange-200/50 dark:border-orange-900/30">
-        <div className="text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
+        <div className="text-xs text-slate-500 dark:text-slate-400 flex justify-between items-center">
           <span>Based on WoW search volume</span>
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
         </div>
