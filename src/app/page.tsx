@@ -4,7 +4,7 @@ import TrendingKeywords from '@/components/TrendingKeywords';
 import BestsellersList from '@/components/BestsellersList';
 import WhatsHotCard from '@/components/WhatsHotCard';
 import ShopInventory from '@/components/ShopInventory';
-import AnalyticsChart from '@/components/AnalyticsChart';
+import SmartInsights from '@/components/SmartInsights';
 import { RefreshCcw, Activity, Store, Heart } from 'lucide-react';
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
         {/* Top Analytics Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[350px]">
           <div className="lg:col-span-8 h-full">
-            <AnalyticsChart />
+            <SmartInsights />
           </div>
           <div className="lg:col-span-4 h-full">
             <WhatsHotCard />
