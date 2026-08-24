@@ -3,24 +3,24 @@
 :root {
   --background: #fafaf9;
   --foreground: #171717;
-  --chart-market: #ea580c; /* stone-900 */
-  --chart-stock: #a1a1aa; /* stone-400 */
+  --chart-market: #ea580c;
+  --chart-stock: #a1a1aa;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1c1917;
     --foreground: #ededed;
-    --chart-market: #f97316; /* stone-100 */
-    --chart-stock: #52525b; /* stone-500 */
+    --chart-market: #f97316;
+    --chart-stock: #52525b;
   }
 }
 
 .dark {
   --background: #1c1917;
   --foreground: #ededed;
-  --chart-market: #f97316; /* stone-100 */
-  --chart-stock: #52525b; /* stone-500 */
+  --chart-market: #f97316;
+  --chart-stock: #52525b;
 }
 
 @theme inline {
@@ -60,11 +60,11 @@ body {
 
 .custom-focus-ring:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #ea580c; /* stone-900 */
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #ea580c;
 }
 
 .dark .custom-focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #f97316; /* stone-200 */
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #f97316;
 }
 
 /* Enforce Bolder Typography */
@@ -75,4 +75,47 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
   font-weight: 700 !important;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────────────────────
+   Centralised here — previously duplicated via dangerouslySetInnerHTML in
+   BestsellersList and TrendingKeywords.
+*/
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #334155;
+}
+
+/* Hide scrollbar for category tab strip (mobile) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Toast Slide-Up Animation ───────────────────────────────────────────── */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.22s ease-out forwards;
 }
