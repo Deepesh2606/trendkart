@@ -1,45 +1,79 @@
-import type { ReactNode } from 'react';
+/** Product categories, ordered as they appear in the rate list. */
+export const CATEGORIES = [
+  'Cables',
+  'Chargers',
+  'Power Banks',
+  'Cases',
+  'Screen Guards',
+  'Earbuds',
+  'Neckbands',
+  'Headphones',
+  'Smartwatches',
+  'Speakers',
+  'Party Speakers',
+  'Car Audio',
+  'Car Tech',
+  'Memory Cards',
+  'Creator Kit',
+] as const;
 
+export type Category = (typeof CATEGORIES)[number];
+
+/** A single line on the rate list. */
 export interface Product {
   id: string;
-  rank?: number;
   name: string;
-  price: number;
-  originalPrice: number;
+  brand: string;
+  category: Category;
+  /** Street rate in rupees — what a Jalandhar shop actually sells at. */
+  rate: number;
+  /** Printed MRP in rupees. Always >= rate. */
+  mrp: number;
   rating: number;
+  /** Review count as printed on the listing, e.g. "1.2L+". */
   reviews: string;
-  link: string;
-  category?: string;
+  /** Rank within its category. 1 is the top seller. */
+  rank: number;
+  /** True for lines that are new or newly moving this season. */
+  fresh?: boolean;
 }
 
-export interface InventoryItem {
+/** What people in Punjab are searching for. */
+export interface TrendRow {
+  keyword: string;
+  /** Search volume as a printed band, e.g. "12K+". */
+  volume: string;
+  /** Week-on-week change in percent. Negative means cooling off. */
+  delta: number;
+  category: Category;
+}
+
+export type StockStatus = 'stocked' | 'ordered' | 'out' | 'watching';
+
+/** A line in the shopkeeper's own register. */
+export interface RegisterEntry {
   id: string;
   name: string;
   category: string;
-  status: 'Stocked' | 'Ordered' | 'Out of Stock' | 'Researching';
+  status: StockStatus;
+  /** Rate at the time it was added, if it came from the rate list. */
+  rate?: number;
+  addedAt: number;
 }
 
-export interface Trend {
-  keyword: string;
-  volume: string;
-  trend: 'up' | 'down';
-  percentage: number;
-}
-
-export interface InsightCard {
-  id: string;
-  type: 'margin' | 'revenue' | 'mover';
-  title: string;
-  productName: string;
-  description: string;
-  badgeText: string;
-  badgeColor: string;
-  icon: ReactNode;
+/** One reason to buy something, shown on the buy list. */
+export interface BuyLine {
   product: Product;
+  /** Short reason this made the list, in the shopkeeper's terms. */
+  reason: string;
+  /** Rupees earned per unit at the assumed margin. */
+  perUnit: number;
+  kind: 'margin' | 'volume' | 'gap';
 }
 
-export interface ChartData {
-  category: string;
-  marketItems: number;
-  shopItems: number;
+/** Market supply vs the register, per category. */
+export interface CoverageRow {
+  category: Category;
+  onList: number;
+  inRegister: number;
 }

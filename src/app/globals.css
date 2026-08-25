@@ -1,121 +1,147 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/*
+ * TrendKart — the rate list.
+ *
+ * The whole look is borrowed from what actually sits on a Jalandhar accessories
+ * counter: a carbon-copy bill book. Grey-green ledger stock, warm black ink, one
+ * red rule down the margin, and a violet rubber stamp. Figures are set in mono
+ * with tabular numerals so rate columns line up the way a printed rate list does.
+ *
+ * Tailwind v4 has no config file, so the palette lives here. Class-based dark
+ * mode needs the custom variant below — v4 wires `dark:` to the media query
+ * otherwise, which is why the old toggle did nothing.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafaf9;
-  --foreground: #171717;
-  --chart-market: #ea580c;
-  --chart-stock: #a1a1aa;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1c1917;
-    --foreground: #ededed;
-    --chart-market: #f97316;
-    --chart-stock: #52525b;
-  }
+  --paper: #efeee4;
+  --paper-raised: #f8f7f0;
+  --paper-sunk: #e5e3d6;
+  --rule: #d7d4c3;
+  --rule-strong: #b6b3a0;
+  --ink: #1b1a16;
+  --ink-soft: #56544a;
+  --ink-faint: #8a8778;
+  --margin-red: #ab3520;
+  --stamp: #2f3d8f;
+  --gain: #2c6a39;
+  --hold: #8a6410;
 }
 
 .dark {
-  --background: #1c1917;
-  --foreground: #ededed;
-  --chart-market: #f97316;
-  --chart-stock: #52525b;
+  --paper: #17160f;
+  --paper-raised: #201f16;
+  --paper-sunk: #100f0a;
+  --rule: #35332a;
+  --rule-strong: #4b4839;
+  --ink: #edeade;
+  --ink-soft: #a9a596;
+  --ink-faint: #7d7a6c;
+  --margin-red: #e0705a;
+  --stamp: #97a5ec;
+  --gain: #7cba8b;
+  --hold: #cba54b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-chart-market: var(--chart-market);
-  --color-chart-stock: var(--chart-stock);
-  --color-blue-accent: #2a78d6;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-raised: var(--paper-raised);
+  --color-sunk: var(--paper-sunk);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-margin-red: var(--margin-red);
+  --color-stamp: var(--stamp);
+  --color-gain: var(--gain);
+  --color-hold: var(--hold);
+
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: var(--font-plex-condensed), var(--font-plex-sans), sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-  background-color: rgba(234, 88, 12, 0.2);
-  color: inherit;
-}
-
-.dark ::selection {
-  background-color: rgba(249, 115, 22, 0.3);
-  color: inherit;
-}
-
-.custom-focus-ring:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #ea580c;
-}
-
-.dark .custom-focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #f97316;
-}
-
-/* Enforce Bolder Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 800 !important;
-  letter-spacing: -0.02em;
-}
-
-button {
-  font-weight: 700 !important;
-}
-
-/* ─── Custom Scrollbar ───────────────────────────────────────────────────────
-   Centralised here — previously duplicated via dangerouslySetInnerHTML in
-   BestsellersList and TrendingKeywords.
-*/
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
-  border-radius: 20px;
-}
-.dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #334155;
-}
-
-/* Hide scrollbar for category tab strip (mobile) */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* ─── Toast Slide-Up Animation ───────────────────────────────────────────── */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans), sans-serif;
+    /* Faint horizontal ruling, like the printed lines on a ledger page. */
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      color-mix(in srgb, var(--rule) 55%, transparent) 31px,
+      color-mix(in srgb, var(--rule) 55%, transparent) 32px
+    );
+  }
+
+  /* Headings carry the condensed face; no weight is forced with !important. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-condensed), sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--stamp);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--stamp) 25%, transparent);
   }
 }
 
-.animate-slideUp {
-  animation: slideUp 0.22s ease-out forwards;
+@utility figure {
+  font-family: var(--font-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'zero' 1;
+}
+
+/* A printed heading on a ruled form: small, spaced, sitting above a rule. */
+@utility form-label {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* The signature: MRP struck through in red, the street rate standing next to it. */
+@utility struck {
+  text-decoration-line: line-through;
+  text-decoration-color: var(--margin-red);
+  text-decoration-thickness: 1.5px;
+  color: var(--ink-faint);
+}
+
+/* Rubber stamp. Deliberately crooked, because a hand-pressed stamp never is. */
+@utility stamp-mark {
+  font-family: var(--font-condensed), sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  border-radius: 3px;
+  opacity: 0.72;
+  rotate: -5deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,34 +1,58 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Providers } from "@/components/Providers";
+import type { Metadata } from 'next';
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  IBM_Plex_Sans_Condensed,
+} from 'next/font/google';
+import { THEME_SCRIPT } from '@/lib/theme-script';
+import './globals.css';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+/**
+ * IBM Plex, three ways: condensed for headings and column titles, the regular
+ * sans for prose, mono for every figure. One superfamily keeps the page looking
+ * like a single printed form rather than three fonts arguing.
+ */
+const plexSans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-plex-sans',
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const plexCondensed = IBM_Plex_Sans_Condensed({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-plex-condensed',
+  display: 'swap',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "TrendKart — Jalandhar Market Intelligence",
-  description: "Real-time market data for mobile accessories in Punjab — bestsellers, trending searches, and your shop inventory in one place.",
+  title: 'TrendKart — rate list & stock register',
+  description:
+    'A rate list for a mobile-accessories counter in Jalandhar: street rates against MRP, what is trending, and what to buy next. Runs on a curated sample catalogue.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
+      className={`${plexSans.variable} ${plexCondensed.variable} ${plexMono.variable}`}
     >
-      <body className="min-h-full flex flex-col">
-        {/* Providers wraps the app with InventoryContext + global Toast system */}
-        <Providers>{children}</Providers>
-      </body>
+      <head>
+        {/* Runs before paint, so the theme is settled by the first frame. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
