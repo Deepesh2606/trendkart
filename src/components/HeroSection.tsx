@@ -51,7 +51,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-stone-300 text-sm sm:text-base max-w-xl leading-relaxed">
-            Real-time analytics for mobile accessories. Discover what's selling fast, identify high-margin wholesale opportunities, and optimise your shop's inventory before competitors do.
+            Real-time data on what's selling across Jalandhar. Spot high-margin gaps, restock before you run dry.
           </p>
         </div>
 

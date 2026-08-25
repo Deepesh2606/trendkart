@@ -134,8 +134,6 @@ export default function Home() {
           <p className="text-sm text-stone-400 font-medium flex items-center flex-wrap gap-1">
             © {new Date().getFullYear()} All rights reserved.
             <span className="text-stone-700">|</span>
-            Powered by TrendKart Market Intelligence
-            <span className="text-stone-700">|</span>
             <a
               href="https://github.com/deepesh2606"
               target="_blank"

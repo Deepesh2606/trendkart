@@ -252,7 +252,7 @@ export default function SmartInsights() {
                 Inventory Deficit vs Market Demand
               </h3>
               <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
-                Trending items stocked per category in your shop.
+                Market supply vs your stock, by category.
               </p>
             </div>
 

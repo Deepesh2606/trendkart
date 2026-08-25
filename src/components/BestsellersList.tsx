@@ -91,9 +91,6 @@ export default function BestsellersList() {
             <h2 className="text-lg font-semibold text-stone-900 dark:text-stone-100 leading-none">
               Flipkart Bestsellers
             </h2>
-            <p className="text-[10px] text-stone-400 dark:text-stone-500 mt-0.5">
-              With discount badges, margin estimates &amp; your stock status
-            </p>
           </div>
         </div>
 
@@ -243,7 +240,7 @@ export default function BestsellersList() {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center space-x-2 bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/50 dark:hover:bg-stone-800 text-orange-700 dark:text-orange-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group"
           >
-            <span>Explore more {activeCategory} on Google</span>
+            <span>Search {activeCategory} on Google</span>
             <ExternalLink size={15} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>

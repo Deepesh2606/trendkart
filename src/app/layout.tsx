@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "TrendKart — Jalandhar Market Intelligence",
-  description: "Real-time analytics for mobile accessories in Punjab. Track bestsellers, trending keywords, and manage your shop inventory.",
+  description: "Real-time market data for mobile accessories in Punjab — bestsellers, trending searches, and your shop inventory in one place.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         {/* Providers wraps the app with InventoryContext + global Toast system */}

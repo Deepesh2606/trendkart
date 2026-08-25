@@ -146,7 +146,7 @@ export default function TrendingKeywords() {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center space-x-2 bg-white hover:bg-stone-100 dark:bg-stone-800/50 dark:hover:bg-stone-800 text-orange-700 dark:text-orange-400 py-3 rounded-xl font-medium text-sm transition-colors active:scale-[0.98] custom-focus-ring group border border-stone-200 dark:border-stone-700"
           >
-            <span>Explore Punjab Trends</span>
+            <span>View Punjab trends on Google</span>
             <ExternalLink size={15} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
