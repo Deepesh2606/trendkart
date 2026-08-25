@@ -1,121 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf9;
-  --foreground: #171717;
-  --chart-market: #ea580c;
-  --chart-stock: #a1a1aa;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1c1917;
-    --foreground: #ededed;
-    --chart-market: #f97316;
-    --chart-stock: #52525b;
-  }
-}
-
-.dark {
-  --background: #1c1917;
-  --foreground: #ededed;
-  --chart-market: #f97316;
-  --chart-stock: #52525b;
+  --background: #f7f8fa;
+  --foreground: #101828;
+  --card: #ffffff;
+  --card-foreground: #101828;
+  --muted: #edf1f5;
+  --muted-foreground: #667085;
+  --primary: #1264ff;
+  --primary-foreground: #ffffff;
+  --secondary: #dbe8ff;
+  --accent: #ff6b35;
+  --accent-foreground: #ffffff;
+  --border: #dfe4ea;
+  --radius: 1rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-chart-market: var(--chart-market);
-  --color-chart-stock: var(--chart-stock);
-  --color-blue-accent: #2a78d6;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-  background-color: rgba(234, 88, 12, 0.2);
-  color: inherit;
-}
-
-.dark ::selection {
-  background-color: rgba(249, 115, 22, 0.3);
-  color: inherit;
-}
-
-.custom-focus-ring:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #ea580c;
-}
-
-.dark .custom-focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px #f97316;
-}
-
-/* Enforce Bolder Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 800 !important;
-  letter-spacing: -0.02em;
-}
-
-button {
-  font-weight: 700 !important;
-}
-
-/* ─── Custom Scrollbar ───────────────────────────────────────────────────────
-   Centralised here — previously duplicated via dangerouslySetInnerHTML in
-   BestsellersList and TrendingKeywords.
-*/
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
-  border-radius: 20px;
-}
-.dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #334155;
-}
-
-/* Hide scrollbar for category tab strip (mobile) */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* ─── Toast Slide-Up Animation ───────────────────────────────────────────── */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slideUp {
-  animation: slideUp 0.22s ease-out forwards;
-}
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; background: var(--background); }
+body { background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+::selection { background: #bcd2ff; color: var(--foreground); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }

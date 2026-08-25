@@ -14,15 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TrendKart — Jalandhar Market Intelligence",
-  description: "Real-time analytics for mobile accessories in Punjab. Track bestsellers, trending keywords, and manage your shop inventory.",
+  title: "TrendKart — Everyday tech, upgraded",
+  description: "Discover the charging cables, chargers, and screen protection everyone is carrying right now.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full bg-background antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {/* Providers wraps the app with InventoryContext + global Toast system */}
